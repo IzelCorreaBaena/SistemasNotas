@@ -8,7 +8,6 @@ import java.security.MessageDigest;
 
 public class Usuario {
 
-    // ── Encriptar contraseña con SHA-256 ────────────────────────────────────────
     public static String encriptar(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -25,7 +24,6 @@ public class Usuario {
         }
     }
 
-    // ── Registrar usuario: crea carpeta data/usuarios/<user>/ y pass.txt ────────
     public static String registrar(String user, String password) {
         if (user == null || user.trim().isEmpty()) {
             return "El nombre de usuario no puede estar vacío.";
@@ -42,7 +40,6 @@ public class Usuario {
             return "Este usuario ya está registrado.";
         }
 
-        // Crear carpeta del usuario y subcarpeta notas
         new File("data/usuarios/" + user + "/notas").mkdirs();
 
         File archivoPass = new File(carpetaUsuario, "pass.txt");
